@@ -20,12 +20,13 @@ var princessBride = new Movie("Princess Bride", ["10am", "12pm", "3pm", "6pm", "
 $(document).ready(function() {
   for (i = 0; i < moviesArray.length; i++) {
     var thisMovie = "";
-    $(".movieListing").append("<ul>");
-    $(".movieListing").append("<ul><h3>" + moviesArray[i].movieTitle +"</h3>");
+    thisMovie += "<ul>";
+    thisMovie += ("<h3>" + moviesArray[i].movieTitle +"</h3>");
     for (show = 0; show < moviesArray[i].time.length; show++) {
-      $(".movieListing").append("<li>" +  moviesArray[i].time[show] + "</li>");
+      thisMovie += ("<li>" +  moviesArray[i].time[show] + "</li>");
     }
-    $(".movieListing").append("</ul>");
+    thisMovie += "</ul>";
+    $(".movieListing").append(thisMovie);
   }
 
   $("li").click(function() {
