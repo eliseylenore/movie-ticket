@@ -6,7 +6,10 @@ function movieTicket(age, time, movieTitle) {
   this.movieTitle = title;
 }
 
-movieTicket.prototype
+movieTicket.prototype.calculatePrice = function() {
+  return parseInt(age) + parseInt(time) + parseInt(movieTitle)
+
+}
 
 
 
