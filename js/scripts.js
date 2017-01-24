@@ -1,16 +1,17 @@
 //back-end logic
+var moviesArray = [];
 
-function movieTicket(age, time, movieTitle) {
-  this.age = age;
-  this.time = time;
-  this.movieTitle = title;
+function Movie(movieTitle, time) {
+  this.time = time,
+  this.movieTitle = movieTitle,
+  moviesArray.push(this)
 }
 
-movieTicket.prototype.calculatePrice = function() {
-  return parseInt(age) + parseInt(time) + parseInt(movieTitle)
+var lalaLand = new Movie("La La Land", ["10am", "12pm", "3pm", "6pm", "10pm"]);
+var lionKing = new Movie("Lion King", ["10am", "12pm", "3pm", "6pm", "10pm"]);
+var princessBride = new Movie("Princess Bride", ["10am", "12pm", "3pm", "6pm", "10pm"]);
 
-}
-
+var totalMovie = [lalaLand, lionKing, princessBride];
 
 
 
@@ -18,11 +19,12 @@ movieTicket.prototype.calculatePrice = function() {
 
 //front-end logic
 $(document).ready(function() {
+  $(".movieTimes").append(lalaLand);
   $("form").submit(function(event) {
     event.preventDefault();
-    var age = $("#age").val();
-    var time = $("#time").val();
-    var movieTitle = $('#movie-title').val();
 
+  });
+  totalMovie.forEach(function(movie) {
+      $(".movieListing").append("<h3>" + movie.movieTitle +"</h3>"+ "<li>" +  movie.time + "</li>");
   });
 });
