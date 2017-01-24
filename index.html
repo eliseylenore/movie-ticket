@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <meta charset="utf-8">
+    <title>Movie Tickets</title>
+  </head>
+  <body class="container">
+    <h1>Movie Ticket Price Generator</h1>
+    <p>Helping you get movie prices since 1999!</p>
+    <div class="row">
+      <div class="col-sm-5">
+        <form class="ticket-calculator">
+          <div class="form-group">
+            <p>How old are you?</p>
+            <select class="form-control" id="age">
+              <option>Under 10</option>
+              <option>Under 18</option>
+              <option>18-65</option>
+              <option>Over 65</option>
+            </select>
+          </div><!--end age-->
+          <div class="form-group">
+            <p>Please select a time.</p>
+            <select class="form-control" id="time">
+              <option value="0">10:00 AM</option>
+              <option value="1">12:00 PM</option>
+              <option value="1">2:00 PM</option>
+              <option value="2">6:00 PM</option>
+              <option value="2">8:00 PM</option>
+              <option value="2">10:00 PM</option>
+            </select>
+          </div><!--end time-->
+          <div class="form-group">
+            <p>Please select a movie.</p>
+            <select class="form-control" id="movie-title">
+              <option value="8">La-La Land</option>
+              <option value="8">Passengers</option>
+              <option value="4">Princess Bride</option>
+              <option value="4">Wayne's World</option>
+              <option value="8">Rogue One</option>
+              <option value="8">Lion</option>
+            </select>
+          </div><!--end movie-->
+          <button type="submit" class="btn btn-primary">Find movie price!</button>
+        </form>
+        <div class="results">
+
+        </div>
+      </div><!--end column-->
+    </div><!--end row-->
+
+  </body>
+</html>
