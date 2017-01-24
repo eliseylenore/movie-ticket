@@ -19,14 +19,26 @@ var princessBride = new Movie("Princess Bride", ["10am", "12pm", "3pm", "6pm", "
 //front-end logic
 $(document).ready(function() {
   for (i = 0; i < moviesArray.length; i++) {
-    $(".movieListing").append("<h3>" + moviesArray[i].movieTitle +"</h3>");
+    var thisMovie = "";
+    $(".movieListing").append("<ul>");
+    $(".movieListing").append("<ul><h3>" + moviesArray[i].movieTitle +"</h3>");
     for (show = 0; show < moviesArray[i].time.length; show++) {
       $(".movieListing").append("<li>" +  moviesArray[i].time[show] + "</li>");
     }
+    $(".movieListing").append("</ul>");
   }
 
   $("li").click(function() {
-    $(this).addClass("red");
+    //time
+    // alert(this.textContent);
+    // alert(this.parent().children(":first-child"));
+    console.log($(this).parent().children(":first-child").text());
+    var title = ($(this).prev("h3"));
+    // console.log(title.textContent)
+    // debugger;
+    $(".movieListing").hide();
+    $(".agePrompt").show();
+    $(".agePrompt").append("");
   });
 
   // totalMovie.forEach(function(movie) {
