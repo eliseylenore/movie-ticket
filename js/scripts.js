@@ -19,6 +19,8 @@ var matinee = ["10am", "12pm", "3pm"]
 
 function calculatePrice(time, age, title)  {
   var price = 4;
+
+
   if (age === child) {
     price -= 1;
   }
@@ -31,6 +33,15 @@ function calculatePrice(time, age, title)  {
   else {
     price -= 2;
   }
+
+  if (time !== matinee) {
+    price += 2;
+  }
+
+  if (title === newMovies) {
+    price += 2;
+  }
+
   return price;
 }
 
@@ -69,7 +80,7 @@ $(document).ready(function() {
 
     var finalPrice = calculatePrice(chosenMovie.time, chosenMovie.age, chosenMovie.movieTitle);
 
-    $(".result").text(finalPrice);
+    $(".result").append("<h3>You chose " + chosenMovie.movieTitle + " at " + chosenMovie.time + ". Your final price is $" + finalPrice + ".</h3>");
   });
 console.log(chosenMovie);
 
