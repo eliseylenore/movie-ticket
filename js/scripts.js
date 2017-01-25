@@ -15,13 +15,30 @@ var newMovies = ["La La Land"];
 var child = "Under 10";
 var teen = "Under 18";
 var adult = "18-65"
+var matinee = ["10am", "12pm", "3pm"]
+
+function calculatePrice(time, age, title)  {
+  var price = 4;
+  if (age === child) {
+    price -= 1;
+  }
+   else if (age === teen) {
+    price += 1;
+  }
+   else if (age === adult) {
+    price += 2;
+  }
+  else {
+    price -= 2;
+  }
+  return price;
+}
 
 
 
 //front-end logic
 $(document).ready(function() {
-  var chosenMovie = [];
-
+  var chosenMovie = new Movie("", []);
   for (i = 0; i < moviesArray.length; i++) {
     var thisMovie = "";
     thisMovie += "<ul>";
@@ -35,23 +52,25 @@ $(document).ready(function() {
 
   $("li").click(function() {
     //time
-    chosenMovie.push(this.textContent);
-    // this.parent().children(":first-child");
+    chosenMovie.time = (this.textContent);
+    chosenMovie.movieTitle = ($(this).parent().children(":first-child").text());
     //movie-title
-    chosenMovie.push($(this).parent().children(":first-child").text());
+    // chosenMovie.push($(this).parent().children(":first-child").text());
 
     $(".movieListing").hide();
     $(".agePrompt").show();
     $(".agePrompt").append("");
+
   });
 
   $("form").submit(function(event) {
     event.preventDefault();
-    chosenMovie.push($("#ageSelect").val());
+    chosenMovie.age = ($("#ageSelect").val());
 
+    var finalPrice = calculatePrice(chosenMovie.time, chosenMovie.age, chosenMovie.movieTitle);
+
+    $(".result").text(finalPrice);
   });
-
-
-
+console.log(chosenMovie);
 
 });
